@@ -5,13 +5,25 @@ import { BaseAdminComponent } from './base-admin/base-admin.component';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home', pathMatch: 'full'
-  },
-  {
-    path: 'home',
     component:BaseAdminComponent,
-    data:{ruta:'home'}
+  children:[
+    {
+      path: '',
+      redirectTo: 'inicio', pathMatch: 'full'
+    },
+    {
+      path: 'inicio',
+      loadChildren: () => import('./../home/home.module').then( m => m.HomeModule),
+    },
+    {
+      path: 'product',
+      loadChildren: () => import('./../product/product.module').then( m => m.ProductModule),
+    }
+
+  ]
+
   },
+
 ];
 
 @NgModule({
