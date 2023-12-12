@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ValidationService } from 'src/app/services/validation.service';
+import { AuthServicesService } from '../../services/auth-services.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +17,8 @@ export class LoginComponent {
   public form!: FormGroup;
   public submit = false;
 
-  constructor(  private _validacionService: ValidationService,  private formBuilder: FormBuilder,private _snackBar: MatSnackBar){
+  constructor(  private _validacionService: ValidationService,  private formBuilder: FormBuilder,private _snackBar: MatSnackBar,
+    private _authService: AuthServicesService,  private router: Router,){
   this.initForm();
   }
 
@@ -40,6 +43,35 @@ export class LoginComponent {
     {
      this.openSnackBar("Complete the form","close");
      this.loading=false;
+     return;
+    }
+    else
+    {
+      const form = this.form.value;
+      this.loading=true;
+      const json = {
+        correo:this.form.get('correo')?.value,
+        password:this.form.get('password')?.value
+      };
+      // console.log(json);
+
+      this._authService.login(json).subscribe((res)=>{
+        this.loading=false;
+        // console.log(res);
+
+        if(res.statusCode==200)
+        {
+          if(res.data.tipo_usuario=='admin')
+          {
+            localStorage.setItem('id',res.data._id);
+            this.router.navigateByUrl('/app')
+          }
+
+        }
+        else{
+          this.openSnackBar(res.mensaje,"close");
+        }
+      });
     }
 
   }
@@ -50,7 +82,7 @@ export class LoginComponent {
 
  openSnackBar(message: string, action: string) {
     this._snackBar.open(message, action,{
-      duration:1000
+      duration:2000
     });
   }
 
