@@ -1,40 +1,46 @@
-<div class="bg-gray-800 min-h-screen px-4 sticky top-0" [ngClass]="{'w-72 duration-700':open, 'w-16 duration-500':!open}" >
+<div class="bg-gray-800 min-h-screen flex flex-col justify-between px-4 sticky top-0" [ngClass]="{'w-72 duration-700':open, 'w-16 duration-500':!open}" >
 
-  <div class="py-3 flex justify-end">
-    <div class="hidden sm:block text-white">
-      <mat-icon class="cursor-pointer" (click)="this.open_()">menu</mat-icon>
+  <div class=" flex flex-col">
+    <div class="flex flex-col">
+      <div class="py-3 flex justify-end">
+        <div class="hidden sm:block text-white">
+          <mat-icon class="cursor-pointer" (click)="this.open_()">menu</mat-icon>
+        </div>
+      </div>
+  </div>
+
+    <div class="flex flex-col mt-4 gap-4 relative">
+      <ng-container *ngFor="let menu of this.menu">
+        <a href="" routerLink="/app/{{menu.router}}" class="group flex items-center text-sm gap-3.5 font-medium p-2 hover:text-gray-500 text-white  rounded-md">
+          <div><mat-icon>{{menu.icon}}</mat-icon></div>
+          <h2 style="transition-delay: 300ms;" class="whitespace-pre duration-500" [ngClass]="{'opacity-0 translate-x-28 overflow-hidden':!open}" >{{menu.name}}</h2>
+          <h2 [ngClass]="{'hidden':open}" class="absolute left-44 bg-white font-semibold whitespace-pre text-gray-900 rounded-md drop-shadow-lg px-0 py-0 w-0 overflow-hidden group-hover:px-2 group-hover:py-1
+           group-hover:left-14 group-hover:duration-300 group-hover:w-fit ">{{menu.name}} </h2>
+        </a>
+      </ng-container>
     </div>
+
   </div>
 
-  <div class="flex flex-col mt-4 gap-4 relative">
-    <ng-container *ngFor="let menu of this.menu">
-      <a href=""  class="group flex items-center text-sm gap-3.5 font-medium p-2 hover:text-gray-500 text-white  rounded-md">
-        <div><mat-icon>{{menu.icon}}</mat-icon></div>
-        <h2 style="transition-delay: 300ms;" class="whitespace-pre duration-500" [ngClass]="{'opacity-0 translate-x-28 overflow-hidden':!open}" >{{menu.name}}</h2>
-        <h2 [ngClass]="{'hidden':open}" class="absolute left-44 bg-white font-semibold whitespace-pre text-gray-900 rounded-md drop-shadow-lg px-0 py-0 w-0 overflow-hidden group-hover:px-2 group-hover:py-1
-         group-hover:left-14 group-hover:duration-300 group-hover:w-fit ">{{menu.name}} </h2>
-      </a>
-    </ng-container>
-  </div>
 
-  <div class=" h-[60vh] w-full flex items-end text-white">
-    <div class="flex flex-col gap-4">
+
+    <div class="flex-col gap-4 relative">
       <a href="" class="group flex items-center text-sm gap-3.5 font-medium p-2 hover:text-gray-500 text-white  rounded-md">
         <div><mat-icon>settings</mat-icon></div>
         <h2 style="transition-delay: 300ms;" class="whitespace-pre duration-500" [ngClass]="{'opacity-0 translate-x-28 overflow-hidden':!open}" >Setting</h2>
         <h2 [ngClass]="{'hidden':open}" class="absolute left-44 bg-white font-semibold whitespace-pre text-gray-900 rounded-md drop-shadow-lg px-0 py-0 w-0 overflow-hidden group-hover:px-2 group-hover:py-1
-         group-hover:left-16 group-hover:duration-300 group-hover:w-fit ">Setting </h2>
+         group-hover:left-14 group-hover:duration-300 group-hover:w-fit ">Setting </h2>
       </a>
       <a href="" (click)="Logout()" class="group flex items-center text-sm gap-3.5 font-medium p-2 hover:text-gray-500 text-white  rounded-md">
         <div><mat-icon>exit_to_app</mat-icon></div>
         <h2 style="transition-delay: 300ms;" class="whitespace-pre duration-500" [ngClass]="{'opacity-0 translate-x-28 overflow-hidden':!open}" >Logout</h2>
         <h2 [ngClass]="{'hidden':open}" class="absolute left-44 bg-white font-semibold whitespace-pre text-gray-900 rounded-md drop-shadow-lg px-0 py-0 w-0 overflow-hidden group-hover:px-2 group-hover:py-1
-         group-hover:left-16 group-hover:duration-300 group-hover:w-fit ">Logout </h2>
+         group-hover:left-14 group-hover:duration-300 group-hover:w-fit ">Logout </h2>
       </a>
     </div>
 
 
-  </div>
+
 
 
 </div>

@@ -1,0 +1,29 @@
+#fileInput {
+  /* Estilos adicionales para el input de tipo file */
+  /* Por ejemplo, ocultar el borde predeterminado y ajustar el color de fondo */
+  @apply hidden;
+}
+
+#fileInput + label {
+  @apply cursor-pointer bg-gray-300 shadow-xl text-black py-2 px-4 rounded-full;
+}
+
+#fileInput + label span {
+  @apply text-xl;
+}
+
+.custom-mat-form-field{
+  height: 74px;
+}
+
+.custom-mat-form-field input {
+  font-size: 12px; /*Ajusta el tamaño de la fuente del input*/
+  height: 24px;    /* Ajusta la altura del input*/
+}
+
+input{
+  height: 50px;
+}
+select{
+  height: 50px;
+}

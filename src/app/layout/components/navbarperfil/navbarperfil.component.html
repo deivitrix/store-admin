@@ -1,0 +1,155 @@
+<div
+  class="w-full flex justify-between p-3 shadow-2xl items-center sticky top-0 z-10 bg-white"
+>
+  <div class="">
+    <img src="../../../../assets/images/logo.png" class="w-12 h-12" alt="">
+  </div>
+  <div class="flex gap-3 items-center">
+    <div class="h-full flex items-center cursor-pointer " d="dropdownHoverButton" data-dropdown-toggle="dropdownHover" data-dropdown-trigger="hover">
+      <mat-icon class="icon hover:bg-gray-200 hover:rounded-full">notifications</mat-icon>
+      <ng-container *ngIf="this.item!=0">
+        <sup class="text-red-600 bg-slate-500">{{this.item}}</sup>
+      </ng-container>
+      <!-- <sup class="sup-icon w-5 h-5"><span class="bg-blue-500 rounded-full text-white w-3 border" >2</span></sup> -->
+    </div>
+    <!-- <button id="dropdownHoverButton" data-dropdown-toggle="dropdownHover" data-dropdown-trigger="hover" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" type="button">Dropdown hover <svg class="w-2.5 h-2.5 ms-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+      <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+      </svg>
+      </button>
+-->
+
+      <div id="dropdownHover" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-80 dark:bg-gray-700">
+        <div class="flex justify-between py-2 px-2 items-center mt-4 mb-4">
+          <span>Notifications</span>
+          <span class="text-xs px-2 bg-blue-300 text-slate-500 rounded-full">{{this.item}} Unread</span>
+        </div>
+        <ul *ngIf="!this.not" class=" text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHoverButton">
+           <li class="py-2 cursor-pointer">
+            <div  id="toast-message-cta" class=" hover:bg-gray-200 w-full max-w-xs p-4 text-gray-500 bg-white rounded-lg shadow dark:bg-gray-800 dark:text-gray-400" role="alert">
+              <div class="flex items-center">
+                  <div class="flex gap-4">
+                    <div style="background-color: #ddd8f0;" class=" w-14 h-11 rounded-full flex items-center justify-center">
+                      <mat-icon style="color: #9277ed;" class="text-white">card_giftcard</mat-icon>
+                    </div>
+                    <div class="flex flex-col gap-1">
+                      <div class="font-bold">Ingreso de login</div>
+                      <div class="text-xs">El ingreso de un nuevo login en otra computadora</div>
+                    </div>
+
+                  </div>
+                  <button (click)="this.not_notification()" type="button" class=" ms-auto -mx-1.5 -my-1.5  justify-center items-center flex-shrink-0 text-gray-400 rounded-lg focus:ring-2 focus:ring-gray-300 p-1.5  inline-flex h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700" data-dismiss-target="#toast-message-cta" aria-label="Close">
+                      <span class="sr-only">Close</span>
+                      <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                      </svg>
+                  </button>
+              </div>
+          </div>
+           </li>
+           <li class="py-2 cursor-pointer">
+            <div   id="toast-message-cta1" class=" hover:bg-gray-300 w-full max-w-xs p-4 text-gray-500 bg-white rounded-lg shadow dark:bg-gray-800 dark:text-gray-400" role="alert">
+              <div class="flex items-center">
+                  <div class="flex gap-4">
+                    <div style="background-color: #bddbf0;" class="w-14 h-11 rounded-full flex items-center justify-center">
+                      <mat-icon style="color: #3277a8;">error_outline</mat-icon>
+                    </div>
+                    <div class="flex flex-col gap-1">
+                      <div class="font-bold">Error al inicio de Sesion</div>
+                      <div class="text-xs">El usuario Deivid supero el maximo de intentos</div>
+
+                    </div>
+
+                  </div>
+                  <button (click)="this.not_notification()"  type="button" class=" ms-auto -mx-1.5 -my-1.5 justify-center items-center flex-shrink-0 text-gray-400  rounded-lg focus:ring-2  p-1.5 inline-flex h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700" data-dismiss-target="#toast-message-cta1" aria-label="Close">
+                      <span class="sr-only">Close</span>
+                      <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                      </svg>
+                  </button>
+              </div>
+          </div>
+           </li>
+           <li class="py-2 cursor-pointer">
+            <div  id="toast-message-cta2" class=" hover:bg-gray-300 w-full max-w-xs p-4 text-gray-500 bg-white rounded-lg shadow dark:bg-gray-800 dark:text-gray-400" role="alert">
+              <div class="flex items-center">
+                  <div class="flex gap-4">
+                    <div style="background-color: #a3d1ab;" class="w-14 h-11 rounded-full flex items-center justify-center">
+                      <mat-icon style="color: #43d136;">lock_clock</mat-icon>
+                    </div>
+                    <div class="flex flex-col gap-1">
+                      <div class="font-bold">La creacion de cuenta</div>
+                      <div class="text-xs">Las cuentas han crecido un 15% en el ultimo mes</div>
+
+                    </div>
+
+                  </div>
+                  <button (click)="this.not_notification()" type="button" class="ms-auto -mx-1.5 -my-1.5 justify-center items-center flex-shrink-0 text-gray-400  rounded-lg focus:ring-2  p-1.5  inline-flex h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700" data-dismiss-target="#toast-message-cta2" aria-label="Close">
+                      <span class="sr-only">Close</span>
+                      <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                      </svg>
+                  </button>
+              </div>
+          </div>
+           </li>
+           <li class="py-2 cursor-pointer">
+            <div  id="toast-message-cta3" class=" hover:bg-gray-300 w-full max-w-xs p-4 text-gray-500 bg-white rounded-lg shadow dark:bg-gray-800 dark:text-gray-400" role="alert">
+              <div class="flex items-center">
+                  <div class="flex gap-4">
+                    <div style="background-color: #ebc4c4;" class="w-14 h-11 rounded-full flex items-center justify-center">
+                      <mat-icon style="color: #d6283c;">highlight_off</mat-icon>
+                    </div>
+                    <div class="flex flex-col gap-1">
+                      <div class="font-bold">Pedidos retrasados</div>
+                      <div class="text-xs">Los pedidos en el ultimo mes se han retrasado un 10% en la entrega</div>
+                    </div>
+
+                  </div>
+                  <button  (click)="this.not_notification()" type="button" class="ms-auto -mx-1.5 -my-1.5 justify-center items-center flex-shrink-0 text-gray-400  rounded-lg focus:ring-2  p-1.5  inline-flex h-8 w-8 dark:text-gray-500 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700" data-dismiss-target="#toast-message-cta3" aria-label="Close">
+                      <span class="sr-only">Close</span>
+                      <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                      </svg>
+                  </button>
+              </div>
+          </div>
+           </li>
+        </ul>
+        <ng-container *ngIf="!this.not">
+          <div class="p-2 w-full">
+            <button class="w-full bg-blue-400 p-2 rounded-lg text-white">View All</button>
+          </div>
+        </ng-container>
+        <ng-container *ngIf="this.not">
+          <div class="h-56 flex justify-center items-center">
+           <div class="flex flex-col justify-center w-full items-center">
+            <div class="w-11 h-11 bg-blue-300 rounded-full flex items-center justify-center">
+              <mat-icon>notifications</mat-icon>
+            </div>
+            <div class="w-full text-center mt-3">
+              <span>No new Notifications</span>
+            </div>
+           </div>
+
+          </div>
+        </ng-container>
+
+      </div>
+
+    <div class="cursor-pointer shadow-xl border border-black rounded-full bg-blue-300">
+      <img src="{{ this.imagen }}" class="w-7 h-7 rounded-full" alt="" />
+    </div>
+    <div class="cursor-pointer flex items-center flex-col">
+      <div class="flex gap-2">
+        <div class="text-sm">{{ user?.nombre }}</div>
+        <div class="text-sm">{{ user?.apellido }}</div>
+      </div>
+      <div class="text-xs text-gray-500">
+        {{ user?.tipo_usuario | uppercase }}
+      </div>
+    </div>
+    <div class="h-full flex items-center cursor-pointer">
+      <mat-icon class="h-full">settings</mat-icon>
+    </div>
+  </div>
+</div>

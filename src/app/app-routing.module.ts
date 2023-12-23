@@ -13,6 +13,10 @@ const routes: Routes = [
     path:'app',
     canActivate:[NoSesionGuard],
     loadChildren:()=>import('./admin/admin.module').then(m=>m.AdminModule)
+  },
+  {
+    path: '**',
+    redirectTo: '', pathMatch: 'full'
   }
 
 ];

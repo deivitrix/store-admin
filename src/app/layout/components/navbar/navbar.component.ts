@@ -10,10 +10,10 @@ export class NavbarComponent implements OnInit {
   open=false;
 
   menu=[
-    { name:'Dashoard', icon:'dashboard'},
-    { name:'User', icon:'manage_accounts'},
-    { name:'Product', icon:'work'},
-    { name:'Product', icon:'work'}
+    { name:'Dashoard', icon:'dashboard',router:'inicio'},
+    { name:'User', icon:'manage_accounts',router:''},
+    { name:'Product', icon:'work',router:'product'},
+    { name:'Product', icon:'work',router:'product'}
   ]
 
   constructor(private router: Router){

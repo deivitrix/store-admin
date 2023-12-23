@@ -5,10 +5,10 @@ import { BaseProductComponent } from './base-product/base-product.component';
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home', pathMatch: 'full'
+    redirectTo: 'product', pathMatch: 'full'
   },
   {
-    path: 'home',
+    path: 'product',
     component: BaseProductComponent
   },
 ];

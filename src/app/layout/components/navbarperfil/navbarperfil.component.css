@@ -1,0 +1,14 @@
+.icon{
+  font-size: 24px !important;
+  color: #c1c3c5;
+}
+
+.sup-icon{
+  font-size: 12px; /* Ajusta el tamaño de la fuente del exponente según tus necesidades */
+  color: red;
+}
+
+/* .notification{
+  background-color: rgba(var(35,183,229),.1) !important;
+  color: rgb(var(35,183,229)) !important;
+} */

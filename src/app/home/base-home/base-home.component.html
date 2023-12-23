@@ -1,9 +1,14 @@
-<p>base-home works!</p>
-<p>base-home works!</p>
-<p>base-home works!</p>
-<p>base-home works!</p>
-<p>base-home works!</p>
-<p>base-home works!</p>
-<p>base-home works!</p>
+
+<div class="mt-8 flex flex-wrap gap-16 justify-center">
+  <app-card-contenido [card]="card1" ></app-card-contenido>
+  <app-card-contenido [card]="card2" ></app-card-contenido>
+  <app-card-contenido [card]="card3" ></app-card-contenido>
+  <app-card-contenido [card]="card4" ></app-card-contenido>
+</div>
+
+<div class="flex flex-wrap justify-center mt-10 gap-10">
+    <app-chart [chart_info]="chart1"></app-chart>
+    <app-chart [chart_info]="chart2"></app-chart>
+</div>
 
 
